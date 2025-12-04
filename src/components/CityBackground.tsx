@@ -73,7 +73,7 @@ export function CityBackground() {
             </div>
 
             {/* Moon */}
-            <div className="absolute top-10 right-20 w-16 h-16 bg-blue-100 rounded-full blur-sm shadow-[0_0_40px_rgba(255,255,255,0.2)] opacity-80" />
+            <div className="absolute top-10 right-20 w-16 h-16 bg-blue-100 rounded-full  shadow-[0_0_40px_rgba(255,255,255,0.2)] opacity-80" />
 
             {/* Skyline */}
             <div className="absolute bottom-20 left-0 right-0 h-64 opacity-60">

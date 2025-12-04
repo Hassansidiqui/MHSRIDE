@@ -44,7 +44,7 @@
      Let's stick to a dark theme for consistency with the "Premium" feel.
   */
     :root {
-        /* Overriding light mode to still be dark-ish or premium grey */
+
         --background: #0f172a;
         --foreground: #f8fafc;
         --card: #1e293b;
@@ -56,7 +56,7 @@
     }
 }
 
-@theme inline {
+/* @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --color-primary: var(--primary);
@@ -74,7 +74,7 @@
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
-}
+} */
 
 body {
     background: var(--background);
