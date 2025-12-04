@@ -1,10 +1,10 @@
 import { BookingForm } from "@/components/BookingForm";
-import { MapBackground } from "@/components/MapBackground";
+import { CityBackground } from "@/components/CityBackground";
 
 export function Hero() {
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-            <MapBackground />
+            <CityBackground />
 
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
                 {/* Text Content */}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Car, Menu, Phone, User, Map } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
@@ -16,11 +17,18 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    const pathname = usePathname();
+    const router = useRouter();
+
+    const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
         e.preventDefault();
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+        if (pathname === "/") {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            router.push(`/#${id}`);
         }
     };
 
@@ -43,10 +51,10 @@ export function Navbar() {
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-8">
-                    <a href="#home" onClick={(e) => scrollToSection(e, "home")} className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
-                    <a href="#about" onClick={(e) => scrollToSection(e, "about")} className="text-sm font-medium hover:text-blue-500 transition-colors">About Us</a>
-                    <a href="#vehicles" onClick={(e) => scrollToSection(e, "vehicles")} className="text-sm font-medium hover:text-blue-500 transition-colors">Vehicles</a>
-                    <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="text-sm font-medium hover:text-blue-500 transition-colors">Contact</a>
+                    <a href="#home" onClick={(e) => handleNavigation(e, "home")} className="text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
+                    <Link href="/about" className="text-sm font-medium hover:text-blue-500 transition-colors">About Us</Link>
+                    <a href="#vehicles" onClick={(e) => handleNavigation(e, "vehicles")} className="text-sm font-medium hover:text-blue-500 transition-colors">Vehicles</a>
+                    <a href="#contact" onClick={(e) => handleNavigation(e, "contact")} className="text-sm font-medium hover:text-blue-500 transition-colors">Contact</a>
                 </div>
 
                 {/* Actions */}
