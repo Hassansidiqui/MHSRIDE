@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+    /* Dark City Theme */
+    --background: #0f172a;
+    /* Slate 900 - Night Sky */
+    --foreground: #f8fafc;
+    /* Slate 50 */
+
+    --primary: #3b82f6;
+    /* Blue 500 */
+    --primary-foreground: #ffffff;
+
+    --secondary: #f59e0b;
+    /* Amber 500 - Taxi Lights */
+    --secondary-foreground: #0f172a;
+
+    --muted: #1e293b;
+    /* Slate 800 */
+    --muted-foreground: #94a3b8;
+    /* Slate 400 */
+
+    --accent: #8b5cf6;
+    /* Violet 500 */
+    --accent-foreground: #ffffff;
+
+    --card: #1e293b;
+    /* Slate 800 */
+    --card-foreground: #f8fafc;
+
+    --border: #334155;
+    /* Slate 700 */
+    --input: #334155;
+
+    --radius: 1rem;
+}
+
+@media (prefers-color-scheme: light) {
+
+    /* Even in light mode, we want a "City" feel, but maybe slightly lighter? 
+     Actually, user asked to REMOVE white background. So let's keep it dark/premium by default 
+     or use a very light grey for "Day" mode if strictly needed. 
+     But "Dark City" usually implies dark mode everywhere. 
+     Let's stick to a dark theme for consistency with the "Premium" feel.
+  */
+    :root {
+        /* Overriding light mode to still be dark-ish or premium grey */
+        --background: #0f172a;
+        --foreground: #f8fafc;
+        --card: #1e293b;
+        --card-foreground: #f8fafc;
+        --muted: #1e293b;
+        --muted-foreground: #94a3b8;
+        --border: #334155;
+        --input: #334155;
+    }
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism */
+.glass {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text Utility */
+.text-gradient {
+    background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
