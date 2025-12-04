@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Shield, Clock, Award } from "lucide-react";
 
 export function About() {
@@ -69,9 +70,9 @@ export function About() {
                             </div>
                         </div>
 
-                        <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:bg-primary/90 transition-colors shadow-lg">
+                        <Link href="/about" className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-xl font-bold hover:bg-primary/90 transition-colors shadow-lg">
                             Learn More About Us
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
