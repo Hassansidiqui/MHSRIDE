@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Shield, Clock, Award, Users, Target, MapPin } from "lucide-react";
+import Image from "next/image";
 
 const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -85,19 +86,42 @@ export default function AboutPage() {
                                 <div className="space-y-4 mt-12">
                                     <div className="h-64 bg-slate-800 rounded-2xl overflow-hidden relative group">
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                                        {/* Placeholder for image */}
-                                        <div className="w-full h-full bg-slate-700 animate-pulse" />
+                                        <Image
+                                            src="/images/about/passenger.png"
+                                            alt="Satisfied Passenger"
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                     </div>
-                                    <div className="h-48 bg-slate-800 rounded-2xl overflow-hidden relative">
-                                        <div className="w-full h-full bg-slate-700 animate-pulse" />
+                                    <div className="h-48 bg-slate-800 rounded-2xl overflow-hidden relative group">
+                                        <Image
+                                            src="/images/about/city.png"
+                                            alt="City Night View"
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="h-48 bg-slate-800 rounded-2xl overflow-hidden relative">
-                                        <div className="w-full h-full bg-slate-700 animate-pulse" />
+                                    <div className="h-48 bg-slate-800 rounded-2xl overflow-hidden relative group">
+                                        <Image
+                                            src="/images/about/driver.png"
+                                            alt="Professional Chauffeur"
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                     </div>
-                                    <div className="h-64 bg-slate-800 rounded-2xl overflow-hidden relative">
-                                        <div className="w-full h-full bg-slate-700 animate-pulse" />
+                                    <div className="h-64 bg-slate-800 rounded-2xl overflow-hidden relative group">
+                                        <Image
+                                            src="/images/about/interior.png"
+                                            alt="Luxury Interior"
+                                            fill
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                     </div>
                                 </div>
                             </div>
