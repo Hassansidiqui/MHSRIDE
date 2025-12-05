@@ -1,10 +1,38 @@
+"use client";
+
 import { BookingForm } from "@/components/BookingForm";
 import { CityBackground } from "@/components/CityBackground";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export function Hero() {
+    const [isNight, setIsNight] = useState(true);
+
     return (
         <section id="home" className=" relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-            <CityBackground />
+            <CityBackground isNight={isNight} />
+
+            {/* Celestial Body (Sun/Moon Toggle) */}
+            {/* Placed here in Hero to ensure it sits above the background layer */}
+            <motion.div
+                layout
+                onClick={() => setIsNight(!isNight)}
+                className="absolute top-24 right-4 md:top-32 md:right-10 cursor-pointer z-40 pointer-events-auto"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >
+                {isNight ? (
+                    // Moon
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-slate-100 rounded-full shadow-[0_0_40px_rgba(255,255,255,0.3)] relative overflow-hidden">
+                        <div className="absolute top-2 right-3 w-2 h-2 md:w-3 md:h-3 bg-slate-300 rounded-full opacity-50" />
+                        <div className="absolute top-5 right-5 w-3 h-3 md:w-5 md:h-5 bg-slate-300 rounded-full opacity-50" />
+                        <div className="absolute bottom-3 left-3 w-3 h-3 md:w-4 md:h-4 bg-slate-300 rounded-full opacity-50" />
+                    </div>
+                ) : (
+                    // Sun
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-yellow-400 rounded-full shadow-[0_0_60px_rgba(250,204,21,0.8)]" />
+                )}
+            </motion.div>
 
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
                 {/* Text Content */}
